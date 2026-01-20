@@ -4,12 +4,12 @@ public class RozdilyLinearni {
 	public static double[] rozdily(double[] funkce) {
 		double[] rozdily = new double[funkce.length - 1];
 		
-		for (int delkaRozdilu = 0; delkaRozdilu < rozdily.length - 1; delkaRozdilu++) {
+		for (int delkaRozdilu = 0; delkaRozdilu < rozdily.length; delkaRozdilu++) {
 			double suma = 0;
-			for (int start = 0; start + delkaRozdilu < rozdily.length - 1; start++) {
+			for (int start = 0; start < rozdily.length - delkaRozdilu; start++) {
 				suma += rozdil(funkce, start, start + delkaRozdilu + 1);
 			}
-			rozdily[delkaRozdilu] = suma / (delkaRozdilu + 1);
+			rozdily[delkaRozdilu] = suma / (rozdily.length - delkaRozdilu);
 		}
 		return rozdily;
 	}
